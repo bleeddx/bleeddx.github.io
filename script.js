@@ -4,7 +4,7 @@
 const CONFIG = {
     whatsappNumber: '584146062297',      // Tu número con código de país, ej: 584121234567
     discordInvite: 'a8hfUAFCU7',        // Código de invite de Discord
-    discordUser: 'bleed x#0001',         // Tu usuario de Discord
+    discordUser: '@bleed.x',         // Tu usuario de Discord
     email: 'pirelaelias2@email.com',     // Tu email
 
     // URLs de redes sociales y enlaces externos centralizados
@@ -18,7 +18,7 @@ const CONFIG = {
       //  paypal: 'https://www.paypal.com/donate/?business=pirelaelias2@email.com&item_name=Support+bleed.x&currency_code=USD',
         spotify: 'https://open.spotify.com/user/312bf2gezlhrjpi67pjl5srwwtvm?si=l9QdEoHpTom8U-N43IWM0w',
         instagram: 'https://www.instagram.com/bleed.xc/',
-        github: 'https://github.com/Minyu-x',
+        github: 'https://github.com/bleeddx',
         email: 'mailto:pirelaelias2@email.com'
     }
 };
@@ -498,23 +498,29 @@ document.addEventListener('DOMContentLoaded', () => {
         cursorGlow.classList.remove('active');
     });
 
-    // Audio toggle
+    // Audio toggle using the video audio track
     const audioToggle = document.getElementById('audioToggle');
     const audioIcon = document.getElementById('audioIcon');
-    const bgAudio = document.getElementById('bgAudio');
-    let isPlaying = false;
+    const bgVideo = document.getElementById('bgVideo');
+    bgVideo.loop = true;
+    bgVideo.addEventListener('ended', () => {
+        bgVideo.currentTime = 0;
+        bgVideo.play().catch(() => {});
+    });
 
+    let videoAudioOn = false;
     audioToggle.addEventListener('click', () => {
-        if (isPlaying) {
-            bgAudio.pause();
+        if (videoAudioOn) {
+            bgVideo.muted = true;
             audioIcon.className = 'fas fa-volume-xmark';
             audioToggle.classList.remove('playing');
         } else {
-            bgAudio.play().catch(() => {});
+            bgVideo.muted = false;
             audioIcon.className = 'fas fa-volume-high';
             audioToggle.classList.add('playing');
+            bgVideo.play().catch(() => {});
         }
-        isPlaying = !isPlaying;
+        videoAudioOn = !videoAudioOn;
     });
 
     // View counter animation
