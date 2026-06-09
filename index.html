@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- titulo animado -->
+    <title>bleed.x | Discord Server Creator</title>
+    <meta name="description" content="bleed.x — Creador profesional de servidores de Discord. Diseño, configuración y bots personalizados. Contacta para tu proyecto.">
+    <link rel="icon" type="image/x-icon" href="icono.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Video Background -->
+    <div class="video-bg">
+        <video autoplay muted loop playsinline id="bgVideo">
+            <source src="background.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Particles -->
+    <canvas id="particles"></canvas>
+
+    <!-- Audio Toggle -->
+    <button class="audio-toggle" id="audioToggle" aria-label="Toggle audio">
+        <i class="fas fa-volume-xmark" id="audioIcon"></i>
+    </button>
+    <audio id="bgAudio" loop>
+        <source src="background.mp4" type="audio/mpeg">
+    </audio>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <span class="nav-logo">bleed<span class="accent">.x</span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#hero" class="nav-link active" data-section="hero">Inicio</a>
+            <a href="#about" class="nav-link" data-section="about">Sobre Mí</a>
+            <a href="#services" class="nav-link" data-section="services">Servicios</a>
+            <a href="#projects" class="nav-link" data-section="projects">Proyectos</a>
+            <a href="#contact" class="nav-link" data-section="contact">Contacto</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Scroll Container -->
+    <div class="scroll-container" id="scrollContainer">
+
+        <!-- ============ HERO SECTION ============ -->
+        <section class="section hero-section" id="hero">
+            <div class="profile-card" id="profileCard">
+                <!-- Avatar -->
+                <div class="avatar-wrapper">
+                    <div class="avatar-ring"></div>
+                    <div class="avatar-ring avatar-ring-2"></div>
+                    <img src="avatar.png" alt="bleed.x avatar" class="avatar" id="avatar">
+                    <div class="avatar-status online"></div>
+                </div>
+
+                <h1 class="username">
+                    <span class="username-text">Cosmic</span>
+                </h1>
+
+                <div class="badges">
+                    <div class="badge" title="Verified Creator">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="badge" title="Discord Expert">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <div class="badge" title="Premium">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                </div>
+
+                <p class="bio">Discord server creator · DM for more information.</p>
+
+                <!-- Discord Card -->
+                <div class="discord-card" id="discordCard">
+                    <div class="discord-header">
+                        <i class="fab fa-discord discord-logo"></i>
+                        <span>Discord</span>
+                    </div>
+                    <div class="discord-body">
+                        <div class="discord-user">
+                            <div class="discord-avatar-mini">
+                                <img src="avatar.png" alt="Discord avatar">
+                                <span class="discord-status-dot online"></span>
+                            </div>
+                            <div class="discord-info">
+                                <span class="discord-name">bleed x <i class="fas fa-check-circle verified-icon"></i></span>
+                                <span class="discord-tag">Playing something...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a data-social="youtube" href="#" class="social-link youtube" title="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+             <!--      <a data-social="twitter" href="#" class="social-link twitter" title="X / Twitter" target="_blank"><i class="fab fa-x-twitter"></i></a> -->
+                    <a data-social="discord" href="#" class="social-link discord" title="Discord" target="_blank"><i class="fab fa-discord"></i></a>
+            <!--      <a data-social="twitch" href="#" class="social-link twitch" title="Twitch" target="_blank"><i class="fab fa-twitch"></i></a> -->
+                    <a data-social="tiktok" href="#" class="social-link tiktok" title="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a data-social="email" href="#" class="social-link email" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a data-social="whatsapp" href="#" class="social-link whatsapp" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <!--        <a data-social="paypal" href="#" class="social-link paypal" title="PayPal" target="_blank"><i class="fab fa-paypal"></i></a>-->
+                    <a data-social="spotify" href="#" class="social-link spotify" title="Spotify" target="_blank"><i class="fab fa-spotify"></i></a>
+                    <a data-social="github" href="#" class="social-link github" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                    <a data-social="instagram" href="#" class="social-link instagram" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+
+                <div class="view-counter">
+                    <i class="fas fa-eye"></i>
+                    <span id="viewCount">42</span>
+                </div>
+
+                <!-- Scroll indicator -->
+                <div class="scroll-indicator">
+                    <span>Scroll</span>
+                    <div class="scroll-arrow">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ABOUT SECTION ============ -->
+        <section class="section" id="about">
+            <div class="section-content">
+                <div class="section-header reveal">
+                    <span class="section-tag"><i class="fas fa-user"></i> Sobre Mí</span>
+                    <h2 class="section-title">Creador de <span class="accent">Experiencias</span> en Discord</h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card reveal reveal-left">
+                        <div class="about-avatar-section">
+                            <img src="avatar.png" alt="bleed.x" class="about-avatar">
+                            <div class="about-name-badge">
+                                <h3>bleed.x</h3>
+                                <span class="status-badge"><i class="fas fa-circle"></i> Disponible</span>
+                            </div>
+                        </div>
+                        <p class="about-text">
+                            Soy un creador profesional de servidores de Discord con experiencia en diseño, 
+                            configuración avanzada, bots personalizados y sistemas de moderación. 
+                            Transformo ideas en comunidades vibrantes y funcionales.
+                        </p>
+                        <div class="about-tags">
+                            <span class="tag">Discord Servers</span>
+                            <span class="tag">Bot Setup</span>
+                            <span class="tag">Community Design</span>
+                            <span class="tag">Moderation</span>
+                            <span class="tag">Branding</span>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid reveal reveal-right">
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-server"></i></div>
+                            <div class="stat-number" data-target="50">0</div>
+                            <div class="stat-label">Servidores Creados</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-users"></i></div>
+                            <div class="stat-number" data-target="10000">0</div>
+                            <div class="stat-label">Miembros Totales</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-robot"></i></div>
+                            <div class="stat-number" data-target="30">0</div>
+                            <div class="stat-label">Bots Configurados</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-star"></i></div>
+                            <div class="stat-number" data-target="100">0</div>
+                            <div class="stat-label">Clientes Satisfechos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SERVICES SECTION ============ -->
+        <section class="section" id="services">
+            <div class="section-content">
+                <div class="section-header reveal">
+                    <span class="section-tag"><i class="fas fa-bolt"></i> Servicios</span>
+                    <h2 class="section-title">Lo Que <span class="accent">Ofrezco</span></h2>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card reveal" style="--delay: 0.1s">
+                        <div class="service-icon-wrap">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Diseño de Servidor</h3>
+                        <p>Estructura completa de canales, categorías, roles con colores y permisos personalizados. Branding visual coherente.</p>
+                        <div class="service-price">
+                            <span class="price-from">Desde</span>
+                            <span class="price-value">$15</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card featured reveal" style="--delay: 0.2s">
+                        <div class="featured-badge">Popular</div>
+                        <div class="service-icon-wrap">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Setup Completo</h3>
+                        <p>Servidor listo para usar: canales, roles, bots, automod, sistema de tickets, welcome, logs y más.</p>
+                        <div class="service-price">
+                            <span class="price-from">Desde</span>
+                            <span class="price-value">$30</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card reveal" style="--delay: 0.3s">
+                        <div class="service-icon-wrap">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Bots Personalizados</h3>
+                        <p>Configuración avanzada de bots como MEE6, Carl-bot, Dyno. Comandos custom y automatizaciones.</p>
+                        <div class="service-price">
+                            <span class="price-from">Desde</span>
+                            <span class="price-value">$10</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card reveal" style="--delay: 0.4s">
+                        <div class="service-icon-wrap">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <h3>Seguridad & Mod</h3>
+                        <p>Anti-raid, anti-spam, verificación de usuarios, sistema de warns y logs de auditoría completo.</p>
+                        <div class="service-price">
+                            <span class="price-from">Desde</span>
+                            <span class="price-value">$12</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card reveal" style="--delay: 0.5s">
+                        <div class="service-icon-wrap">
+                            <i class="fas fa-ticket"></i>
+                        </div>
+                        <h3>Sistema de Tickets</h3>
+                        <p>Sistema completo de soporte con tickets, categorías, transcripts y panel de control para staff.</p>
+                        <div class="service-price">
+                            <span class="price-from">Desde</span>
+                            <span class="price-value">$8</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card reveal" style="--delay: 0.6s">
+                        <div class="service-icon-wrap">
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3>Embeds & Estética</h3>
+                        <p>Mensajes embed personalizados, reaction roles, paneles informativos y decoración premium del servidor.</p>
+                        <div class="service-price">
+                            <span class="price-from">Desde</span>
+                            <span class="price-value">$5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PROJECTS SECTION ============ -->
+        <section class="section" id="projects">
+            <div class="section-content">
+                <div class="section-header reveal">
+                    <span class="section-tag"><i class="fas fa-folder-open"></i> Proyectos</span>
+                    <h2 class="section-title">Servidores <span class="accent">Destacados</span></h2>
+                </div>
+
+                <!-- Project Filters -->
+                <div class="project-filters reveal">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="gaming">Gaming</button>
+                    <button class="filter-btn" data-filter="community">Comunidad</button>
+                    <button class="filter-btn" data-filter="anime">Anime</button>
+                    <button class="filter-btn" data-filter="music">Música</button>
+                </div>
+
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Project 1 -->
+                    <div class="project-card reveal" data-category="gaming">
+                        <div class="project-image">
+                            <img src="img/server-gaming.png" alt="Gaming Hub Server">
+                            <div class="project-overlay">
+                                <div class="project-stats">
+                                    <span><i class="fas fa-users"></i> 2.5K</span>
+                                    <span><i class="fas fa-message"></i> 50K+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-category">
+                                <i class="fas fa-gamepad"></i> Gaming
+                            </div>
+                            <h3>Nexus Gaming Hub</h3>
+                            <p>Servidor de gaming con torneos, LFG, canales por juego, sistema de rangos y bots de estadísticas.</p>
+                            <div class="project-tech">
+                                <span>MEE6</span>
+                                <span>Carl-bot</span>
+                                <span>Tickets</span>
+                                <span>Torneos</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="btn-project"><i class="fab fa-discord"></i> Unirse</a>
+                                <button class="btn-project-outline" onclick="openOrderModal('Nexus Gaming Hub')"><i class="fas fa-shopping-cart"></i> Pedir Similar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card reveal" data-category="community">
+                        <div class="project-image">
+                            <img src="img/server-community.png" alt="Community Server">
+                            <div class="project-overlay">
+                                <div class="project-stats">
+                                    <span><i class="fas fa-users"></i> 5K</span>
+                                    <span><i class="fas fa-message"></i> 120K+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-category">
+                                <i class="fas fa-people-group"></i> Comunidad
+                            </div>
+                            <h3>Social Lounge</h3>
+                            <p>Comunidad social con sistema de niveles, economía, mini-juegos, voice lounges y eventos semanales.</p>
+                            <div class="project-tech">
+                                <span>Leveling</span>
+                                <span>Economy</span>
+                                <span>Events</span>
+                                <span>Giveaways</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="btn-project"><i class="fab fa-discord"></i> Unirse</a>
+                                <button class="btn-project-outline" onclick="openOrderModal('Social Lounge')"><i class="fas fa-shopping-cart"></i> Pedir Similar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card reveal" data-category="anime">
+                        <div class="project-image">
+                            <img src="img/server-anime.png" alt="Anime Server">
+                            <div class="project-overlay">
+                                <div class="project-stats">
+                                    <span><i class="fas fa-users"></i> 3.2K</span>
+                                    <span><i class="fas fa-message"></i> 80K+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-category">
+                                <i class="fas fa-dragon"></i> Anime
+                            </div>
+                            <h3>Otaku Paradise</h3>
+                            <p>Servidor anime con watch parties, gacha bots, roleplay channels, arte y discusión por serie.</p>
+                            <div class="project-tech">
+                                <span>Mudae</span>
+                                <span>Watch Party</span>
+                                <span>RP</span>
+                                <span>Art</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="btn-project"><i class="fab fa-discord"></i> Unirse</a>
+                                <button class="btn-project-outline" onclick="openOrderModal('Otaku Paradise')"><i class="fas fa-shopping-cart"></i> Pedir Similar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card reveal" data-category="music">
+                        <div class="project-image">
+                            <img src="img/server-music.png" alt="Music Server">
+                            <div class="project-overlay">
+                                <div class="project-stats">
+                                    <span><i class="fas fa-users"></i> 1.8K</span>
+                                    <span><i class="fas fa-message"></i> 30K+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-category">
+                                <i class="fas fa-music"></i> Música
+                            </div>
+                            <h3>Beats & Vibes</h3>
+                            <p>Comunidad musical con bots de música 24/7, canales por género, showcases y collabs entre artistas.</p>
+                            <div class="project-tech">
+                                <span>Jockie</span>
+                                <span>24/7 Music</span>
+                                <span>Showcase</span>
+                                <span>Collab</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="btn-project"><i class="fab fa-discord"></i> Unirse</a>
+                                <button class="btn-project-outline" onclick="openOrderModal('Beats & Vibes')"><i class="fas fa-shopping-cart"></i> Pedir Similar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT SECTION ============ -->
+        <section class="section" id="contact">
+            <div class="section-content">
+                <div class="section-header reveal">
+                    <span class="section-tag"><i class="fas fa-paper-plane"></i> Contacto</span>
+                    <h2 class="section-title">Haz Tu <span class="accent">Pedido</span></h2>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Info -->
+                    <div class="contact-info reveal reveal-left">
+                        <h3>¿Listo para tu servidor?</h3>
+                        <p>Contáctame por cualquiera de estos medios y cuéntame tu idea. Te respondo en menos de 24 horas.</p>
+
+                        <div class="contact-methods">
+                            <a href="https://wa.me/584146062297?text=Hola%20bleed.x%2C%20me%20interesa%20un%20servidor%20de%20Discord.%20%F0%9F%8E%AE" class="contact-method whatsapp-method" target="_blank" id="whatsappLink">
+                                <div class="method-icon"><i class="fab fa-whatsapp"></i></div>
+                                <div class="method-info">
+                                    <span class="method-name">WhatsApp</span>
+                                    <span class="method-detail">Respuesta rápida</span>
+                                </div>
+                                <i class="fas fa-arrow-right method-arrow"></i>
+                            </a>
+
+                            <a href="https://discord.gg/a8hfUAFCU7" class="contact-method discord-method" target="_blank" id="discordLink">
+                                <div class="method-icon"><i class="fab fa-discord"></i></div>
+                                <div class="method-info">
+                                    <span class="method-name">Discord</span>
+                                    <span class="method-detail">bleed x#0001</span>
+                                </div>
+                                <i class="fas fa-arrow-right method-arrow"></i>
+                            </a>
+
+                            <a href="mailto:pirelaelias2@email.com" class="contact-method email-method" id="emailLink">
+                                <div class="method-icon"><i class="fas fa-envelope"></i></div>
+                                <div class="method-info">
+                                    <span class="method-name">Email</span>
+                                    <span class="method-detail">Para presupuestos formales</span>
+                                </div>
+                                <i class="fas fa-arrow-right method-arrow"></i>
+                            </a>
+                        </div>
+
+                        <div class="trust-badges">
+                            <div class="trust-item">
+                                <i class="fas fa-shield-check"></i>
+                                <span>Pago seguro</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Entrega rápida</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-rotate-left"></i>
+                                <span>Soporte post-venta</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Form -->
+                    <div class="contact-form-wrap reveal reveal-right">
+                        <form class="order-form" id="orderForm">
+                            <h3><i class="fas fa-file-lines"></i> Formulario de Pedido</h3>
+                            
+                            <div class="form-group">
+                                <label for="clientName">Tu nombre</label>
+                                <input type="text" id="clientName" placeholder="¿Cómo te llamo?" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contactType">Contacto preferido</label>
+                                    <select id="contactType" required>
+                                        <option value="">Seleccionar...</option>
+                                        <option value="whatsapp">WhatsApp</option>
+                                        <option value="discord">Discord</option>
+                                        <option value="email">Email</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactValue">Tu contacto</label>
+                                    <input type="text" id="contactValue" placeholder="Número / Tag / Email" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="serverType">Tipo de servidor</label>
+                                <select id="serverType" required>
+                                    <option value="">¿Qué tipo de servidor necesitas?</option>
+                                    <option value="gaming">🎮 Gaming</option>
+                                    <option value="community">👥 Comunidad Social</option>
+                                    <option value="anime">🎌 Anime / Manga</option>
+                                    <option value="music">🎵 Música</option>
+                                    <option value="business">💼 Negocio / Marca</option>
+                                    <option value="roleplay">🎭 Roleplay</option>
+                                    <option value="education">📚 Educación</option>
+                                    <option value="other">✨ Otro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="serverName">Nombre del servidor</label>
+                                <input type="text" id="serverName" placeholder="Nombre que deseas para tu servidor">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Describe tu idea</label>
+                                <textarea id="description" rows="4" placeholder="Cuéntame qué quieres para tu servidor: temática, canales especiales, bots, etc." required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Servicios adicionales</label>
+                                <div class="checkbox-grid">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" value="bots"> 
+                                        <span class="checkmark"></span>
+                                        <span>Bots personalizados</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" value="tickets"> 
+                                        <span class="checkmark"></span>
+                                        <span>Sistema de tickets</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" value="moderation"> 
+                                        <span class="checkmark"></span>
+                                        <span>Moderación avanzada</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" value="embeds"> 
+                                        <span class="checkmark"></span>
+                                        <span>Embeds & decoración</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" value="economy"> 
+                                        <span class="checkmark"></span>
+                                        <span>Sistema de economía</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" value="leveling"> 
+                                        <span class="checkmark"></span>
+                                        <span>Sistema de niveles</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget">Presupuesto aproximado (USD)</label>
+                                <select id="budget">
+                                    <option value="">Seleccionar rango...</option>
+                                    <option value="5-15">$5 - $15</option>
+                                    <option value="15-30">$15 - $30</option>
+                                    <option value="30-50">$30 - $50</option>
+                                    <option value="50+">$50+</option>
+                                    <option value="custom">A convenir</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn-submit" id="submitBtn">
+                                <span class="btn-text">
+                                    <i class="fas fa-paper-plane"></i> Enviar Pedido
+                                </span>
+                                <span class="btn-loading" style="display:none">
+                                    <i class="fas fa-spinner fa-spin"></i> Enviando...
+                                </span>
+                            </button>
+
+                            <p class="form-note">
+                                <i class="fas fa-info-circle"></i> 
+                                Al enviar, se abrirá WhatsApp o Discord con tu pedido listo.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <span class="footer-brand">bleed<span class="accent">.x</span></span>
+                <p>© 2025 bleed.x · Discord Server Creator</p>
+                <div class="footer-socials">
+                    <a data-social="discord" href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a id="footerWhatsappLink" data-social="whatsapp" href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a data-social="twitter" href="#" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                    <a data-social="youtube" href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ============ ORDER MODAL ============ -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-card">
+            <button class="modal-close" id="modalClose"><i class="fas fa-xmark"></i></button>
+            <h3><i class="fas fa-shopping-cart"></i> Pedir Servidor Similar</h3>
+            <p class="modal-server-ref">Referencia: <span id="modalServerName"></span></p>
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="modalName">Tu nombre</label>
+                    <input type="text" id="modalName" placeholder="¿Cómo te llamo?">
+                </div>
+                <div class="form-group">
+                    <label for="modalDetails">¿Qué cambios quieres?</label>
+                    <textarea id="modalDetails" rows="3" placeholder="Describe las personalizaciones que quieres sobre este modelo de servidor..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <a href="https://wa.me/584146062297" class="btn-modal-wa" id="modalWhatsApp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </a>
+                    <a href="https://discord.gg/a8hfUAFCU7" class="btn-modal-dc" id="modalDiscord" target="_blank">
+                        <i class="fab fa-discord"></i> Pedir por Discord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">¡Pedido preparado!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
