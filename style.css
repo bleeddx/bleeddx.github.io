@@ -43,6 +43,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 body {
@@ -128,13 +129,14 @@ body {
    ============================================ */
 .audio-toggle {
     position: fixed;
-    top: 20px; right: 24px;
+    top: calc(20px + env(safe-area-inset-top, 0px));
+    right: calc(24px + env(safe-area-inset-right, 0px));
     z-index: 200;
     width: 44px; height: 44px;
     border-radius: 50%;
     border: 1px solid var(--glass-border);
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(12px);
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(14px);
     color: var(--text-primary);
     font-size: 16px;
     cursor: pointer;
@@ -166,14 +168,16 @@ body {
     justify-content: space-between;
     padding: 16px 40px;
     padding-right: 80px;
-    background: transparent;
+    background: rgba(7, 8, 14, 0.22);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     transition: all 0.4s var(--transition-smooth);
 }
 
 .navbar.scrolled {
-    background: rgba(10,10,10,0.85);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--glass-border);
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(22px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
     padding: 12px 40px;
     padding-right: 80px;
 }
@@ -194,6 +198,49 @@ body {
 .nav-links {
     display: flex;
     gap: 8px;
+    align-items: center;
+}
+
+.lang-switcher {
+    display: flex;
+    align-items: stretch;
+    min-width: 120px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 999px;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 0 rgba(255, 107, 53, 0.08);
+}
+
+.lang-btn {
+    flex: 1 1 0;
+    padding: 10px 12px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.lang-btn:first-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lang-btn.active {
+    color: var(--text-primary);
+    background: rgba(255, 107, 53, 0.14);
+}
+
+.lang-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 107, 53, 0.1);
+}
+
+.nav-close {
+    display: none;
 }
 
 .nav-link {
@@ -1503,20 +1550,72 @@ body {
 @media (max-width: 768px) {
     .nav-links {
         position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(10,10,10,0.97);
-        backdrop-filter: blur(20px);
+        top: 16px;
+        left: 16px;
+        right: 16px;
+        bottom: auto;
+        width: calc(100% - 32px);
+        max-width: 520px;
+        margin: 0 auto;
+        max-height: calc(100vh - 32px);
+        overflow-y: auto;
+        background: rgba(12, 14, 22, 0.94);
+        backdrop-filter: blur(30px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 35px 90px rgba(0, 0, 0, 0.35);
+        border-radius: 30px;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 16px;
         opacity: 0;
         visibility: hidden;
-        transition: all 0.3s ease;
+        transform: translateY(-12px);
+        transition: all 0.25s ease;
         z-index: 150;
+        padding: 28px 20px 24px;
+        box-sizing: border-box;
     }
-    .nav-links.active { opacity: 1; visibility: visible; }
-    .nav-link { font-size: 18px; padding: 12px 24px; }
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .nav-close {
+        align-self: flex-end;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text-primary);
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+    .nav-close:hover {
+        background: rgba(255, 255, 255, 0.14);
+        transform: scale(1.04);
+    }
+    .nav-link {
+        font-size: 18px;
+        padding: 14px 22px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        text-align: center;
+        transition: all 0.25s ease;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+        background: rgba(255, 107, 53, 0.14);
+        color: var(--text-primary);
+        border-color: rgba(255, 107, 53, 0.2);
+    }
     .nav-toggle { display: flex; }
     .navbar { padding-right: 76px; }
     .navbar.scrolled { padding-right: 76px; }
@@ -1550,7 +1649,7 @@ body {
     .navbar { padding: 12px 16px; padding-right: 68px; }
     .navbar.scrolled { padding: 10px 16px; padding-right: 68px; }
     .nav-logo { font-size: 18px; }
-    .audio-toggle { top: 14px; right: 16px; width: 38px; height: 38px; font-size: 14px; }
+    .audio-toggle { top: calc(14px + env(safe-area-inset-top, 0px)); right: calc(16px + env(safe-area-inset-right, 0px)); width: 38px; height: 38px; font-size: 14px; }
 
     .profile-card {
         padding: 28px 18px 22px;
@@ -1667,7 +1766,7 @@ body {
     .navbar { padding: 10px 12px; padding-right: 60px; }
     .navbar.scrolled { padding: 8px 12px; padding-right: 60px; }
     .nav-logo { font-size: 16px; }
-    .audio-toggle { top: 12px; right: 12px; width: 36px; height: 36px; font-size: 13px; }
+    .audio-toggle { top: calc(12px + env(safe-area-inset-top, 0px)); right: calc(12px + env(safe-area-inset-right, 0px)); width: 36px; height: 36px; font-size: 13px; }
 
     .section-title { font-size: 21px; }
     .section-tag { font-size: 10px; padding: 4px 10px; }

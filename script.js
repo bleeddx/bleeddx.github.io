@@ -23,6 +23,227 @@ const CONFIG = {
     }
 };
 
+const TRANSLATIONS = {
+    es: {
+        'meta.title': 'bleed.x | Creador de Servidores Discord',
+        'meta.description': 'bleed.x — Creador profesional de servidores de Discord. Diseño, configuración y bots personalizados. Contacta para tu proyecto.',
+        'nav.home': 'Inicio',
+        'nav.about': 'Sobre Mí',
+        'nav.services': 'Servicios',
+        'nav.projects': 'Proyectos',
+        'nav.contact': 'Contacto',
+        'menu.close': 'Cerrar menú',
+        'menu.toggle': 'Abrir menú',
+        'hero.bio': 'Creador de servidores de Discord · Manda mensaje para más información.',
+        'hero.discordStatus': 'Jugando algo...',
+        'hero.scroll': 'Scroll',
+        'about.tag': 'Sobre Mí',
+        'about.title': 'Creador de <span class="accent">Experiencias</span> en Discord',
+        'about.text': 'Soy un creador profesional de servidores de Discord con experiencia en diseño, configuración avanzada, bots personalizados y sistemas de moderación. Transformo ideas en comunidades vibrantes y funcionales.',
+        'about.status': 'Disponible',
+        'services.tag': 'Servicios',
+        'services.title': 'Lo Que <span class="accent">Ofrezco</span>',
+        'services.priceFrom': 'Desde',
+        'services.badgePopular': 'Popular',
+        'projects.tag': 'Proyectos',
+        'projects.filterAll': 'Todos',
+        'projects.filterGaming': 'Gaming',
+        'projects.filterCommunity': 'Comunidad',
+        'projects.filterAnime': 'Anime',
+        'projects.filterMusic': 'Música',
+        'project.actionJoin': 'Unirse',
+        'project.actionOrder': 'Pedir Similar',
+        'contact.tag': 'Contacto',
+        'contact.title': 'Haz Tu <span class="accent">Pedido</span>',
+        'contact.ready': '¿Listo para tu servidor?',
+        'contact.copy': 'Contáctame por cualquiera de estos medios y cuéntame tu idea. Te respondo en menos de 24 horas.',
+        'contact.whatsappDetail': 'Respuesta rápida',
+        'contact.emailDetail': 'Para presupuestos formales',
+        'contact.trust1': 'Pago seguro',
+        'contact.trust2': 'Entrega rápida',
+        'contact.trust3': 'Soporte post-venta',
+        'form.title': 'Formulario de Pedido',
+        'form.nameLabel': 'Tu nombre',
+        'form.namePlaceholder': '¿Cómo te llamo?',
+        'form.contactTypeLabel': 'Contacto preferido',
+        'form.contactTypeSelect': 'Seleccionar...',
+        'form.contactValueLabel': 'Tu contacto',
+        'form.contactValuePlaceholder': 'Número / Tag / Email',
+        'form.serverTypeLabel': 'Tipo de servidor',
+        'form.serverTypePlaceholder': '¿Qué tipo de servidor necesitas?',
+        'form.serverTypeOptionGaming': '🎮 Gaming',
+        'form.serverTypeOptionCommunity': '👥 Comunidad Social',
+        'form.serverTypeOptionAnime': '🎌 Anime / Manga',
+        'form.serverTypeOptionMusic': '🎵 Música',
+        'form.serverTypeOptionBusiness': '💼 Negocio / Marca',
+        'form.serverTypeOptionRoleplay': '🎭 Roleplay',
+        'form.serverTypeOptionEducation': '📚 Educación',
+        'form.serverTypeOptionOther': '✨ Otro',
+        'form.serverNameLabel': 'Nombre del servidor',
+        'form.serverNamePlaceholder': 'Nombre que deseas para tu servidor',
+        'form.descriptionLabel': 'Describe tu idea',
+        'form.descriptionPlaceholder': 'Cuéntame qué quieres para tu servidor: temática, canales especiales, bots, etc.',
+        'form.extraLabel': 'Servicios adicionales',
+        'form.budgetLabel': 'Presupuesto aproximado (USD)',
+        'form.budgetSelect': 'Seleccionar rango...',
+        'form.budgetOption1': '$5 - $15',
+        'form.budgetOption2': '$15 - $30',
+        'form.budgetOption3': '$30 - $50',
+        'form.budgetOption4': '$50+',
+        'form.budgetOption5': 'A convenir',
+        'form.submit': 'Enviar Pedido',
+        'form.sending': 'Enviando...',
+        'form.note': 'Al enviar, se abrirá WhatsApp o Discord con tu pedido listo.',
+        'footer.copy': '© 2025 bleed.x · Creador de Servidores Discord',
+        'modal.title': 'Pedir Servidor Similar',
+        'modal.reference': 'Referencia: ',
+        'modal.nameLabel': 'Tu nombre',
+        'modal.detailsLabel': '¿Qué cambios quieres?',
+        'modal.whatsapp': 'Pedir por WhatsApp',
+        'modal.discord': 'Pedir por Discord',
+        'contact.methodWhatsApp': 'WhatsApp',
+        'contact.methodDiscord': 'Discord',
+        'contact.methodEmail': 'Email',
+        'toast.success': '¡Pedido preparado!'
+    },
+    en: {
+        'meta.title': 'bleed.x | Discord Server Creator',
+        'meta.description': 'bleed.x — Professional Discord server creator. Design, customization and bots tailored for your project.',
+        'nav.home': 'Home',
+        'nav.about': 'About',
+        'nav.services': 'Services',
+        'nav.projects': 'Projects',
+        'nav.contact': 'Contact',
+        'menu.close': 'Close menu',
+        'menu.toggle': 'Open menu',
+        'hero.bio': 'Discord server creator · DM for more information.',
+        'hero.discordStatus': 'Playing something...',
+        'hero.scroll': 'Scroll',
+        'about.tag': 'About',
+        'about.title': 'Creator of <span class="accent">Experiences</span> on Discord',
+        'about.text': 'I am a professional Discord server creator with experience in design, advanced configuration, custom bots, and moderation systems. I turn ideas into vibrant, functional communities.',
+        'about.status': 'Available',
+        'services.tag': 'Services',
+        'services.title': 'What I <span class="accent">Offer</span>',
+        'services.priceFrom': 'From',
+        'services.badgePopular': 'Popular',
+        'projects.tag': 'Projects',
+        'projects.filterAll': 'All',
+        'projects.filterGaming': 'Gaming',
+        'projects.filterCommunity': 'Community',
+        'projects.filterAnime': 'Anime',
+        'projects.filterMusic': 'Music',
+        'project.actionJoin': 'Join',
+        'project.actionOrder': 'Order Similar',
+        'contact.tag': 'Contact',
+        'contact.title': 'Make Your <span class="accent">Order</span>',
+        'contact.ready': 'Ready for your server?',
+        'contact.copy': 'Contact me through any of these channels and share your idea. I reply within 24 hours.',
+        'contact.whatsappDetail': 'Quick response',
+        'contact.emailDetail': 'For formal quotes',
+        'contact.trust1': 'Secure payment',
+        'contact.trust2': 'Fast delivery',
+        'contact.trust3': 'Post-sale support',
+        'form.title': 'Order Form',
+        'form.nameLabel': 'Your name',
+        'form.contactTypeLabel': 'Preferred contact',
+        'form.contactTypeSelect': 'Choose...',
+        'form.contactValueLabel': 'Your contact',
+        'form.serverTypeLabel': 'Server type',
+        'form.serverTypePlaceholder': 'What type of server do you need?',
+        'form.serverTypeOptionGaming': '🎮 Gaming',
+        'form.serverTypeOptionCommunity': '👥 Social Community',
+        'form.serverTypeOptionAnime': '🎌 Anime / Manga',
+        'form.serverTypeOptionMusic': '🎵 Music',
+        'form.serverTypeOptionBusiness': '💼 Business / Brand',
+        'form.serverTypeOptionRoleplay': '🎭 Roleplay',
+        'form.serverTypeOptionEducation': '📚 Education',
+        'form.serverTypeOptionOther': '✨ Other',
+        'form.serverNameLabel': 'Server name',
+        'form.serverNamePlaceholder': 'Name you want for your server',
+        'form.descriptionLabel': 'Describe your idea',
+        'form.descriptionPlaceholder': 'Tell me what you want for your server: theme, special channels, bots, etc.',
+        'form.extraLabel': 'Additional services',
+        'form.budgetLabel': 'Estimated budget (USD)',
+        'form.budgetSelect': 'Choose a range...',
+        'form.budgetOption1': '$5 - $15',
+        'form.budgetOption2': '$15 - $30',
+        'form.budgetOption3': '$30 - $50',
+        'form.budgetOption4': '$50+',
+        'form.budgetOption5': 'To agree',
+        'form.submit': 'Send Order',
+        'form.sending': 'Sending...',
+        'form.note': 'On submit, WhatsApp or Discord will open with your order ready.',
+        'footer.copy': '© 2025 bleed.x · Discord Server Creator',
+        'modal.title': 'Order Similar Server',
+        'modal.reference': 'Reference: ',
+        'modal.nameLabel': 'Your name',
+        'modal.detailsLabel': 'What changes do you want?',
+        'modal.whatsapp': 'Order via WhatsApp',
+        'modal.discord': 'Order via Discord',
+        'contact.methodWhatsApp': 'WhatsApp',
+        'contact.methodDiscord': 'Discord',
+        'contact.methodEmail': 'Email',
+        'toast.success': 'Order ready!'
+    }
+};
+
+function getSavedLanguage() {
+    const saved = localStorage.getItem('pageLanguage');
+    if (saved && TRANSLATIONS[saved]) return saved;
+    if (navigator.language && navigator.language.startsWith('en')) return 'en';
+    return 'es';
+}
+
+function updateLangButtons(activeLang) {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === activeLang);
+    });
+}
+
+function translatePage(lang) {
+    const translations = TRANSLATIONS[lang] || TRANSLATIONS.es;
+    document.documentElement.lang = lang;
+    document.title = translations['meta.title'] || document.title;
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+        metaDescription.content = translations['meta.description'] || metaDescription.content;
+    }
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        const value = translations[key];
+        if (!value) return;
+        el.innerHTML = value;
+    });
+
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        const key = el.dataset.i18nAria;
+        const value = translations[key];
+        if (value) el.setAttribute('aria-label', value);
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.dataset.i18nPlaceholder;
+        const value = translations[key];
+        if (value) el.placeholder = value;
+    });
+
+    updateLangButtons(lang);
+    localStorage.setItem('pageLanguage', lang);
+}
+
+function initLanguageSwitcher() {
+    const defaultLang = getSavedLanguage();
+    translatePage(defaultLang);
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.dataset.lang;
+            if (lang) translatePage(lang);
+        });
+    });
+}
+
 // ============================================
 // Particle System
 // ============================================
@@ -44,7 +265,7 @@ class ParticleSystem {
     }
 
     init() {
-        const count = Math.min(50, Math.floor((window.innerWidth * window.innerHeight) / 25000));
+        const count = Math.min(90, Math.floor((window.innerWidth * window.innerHeight) / 18000));
         this.particles = [];
         for (let i = 0; i < count; i++) {
             this.particles.push(this.createParticle());
@@ -52,15 +273,17 @@ class ParticleSystem {
     }
 
     createParticle() {
+        const isDark = Math.random() < 0.2;
         return {
             x: Math.random() * this.canvas.width,
             y: Math.random() * this.canvas.height,
-            size: Math.random() * 2 + 0.5,
-            speedX: (Math.random() - 0.5) * 0.3,
-            speedY: (Math.random() - 0.5) * 0.3 - 0.15,
-            opacity: Math.random() * 0.4 + 0.1,
+            size: Math.random() * (isDark ? 3 : 2.5) + 1,
+            speedX: (Math.random() - 0.5) * (isDark ? 0.15 : 0.35),
+            speedY: (Math.random() - 0.5) * (isDark ? 0.15 : 0.35) - 0.12,
+            opacity: Math.random() * 0.45 + (isDark ? 0.05 : 0.15),
             pulse: Math.random() * Math.PI * 2,
-            pulseSpeed: Math.random() * 0.02 + 0.005
+            pulseSpeed: Math.random() * 0.02 + 0.005,
+            colorType: isDark ? 'black' : 'orange'
         };
     }
 
@@ -91,19 +314,27 @@ class ParticleSystem {
 
         this.particles.forEach(p => {
             const currentOpacity = p.opacity * (0.7 + Math.sin(p.pulse) * 0.3);
-            
+            const isDark = p.colorType === 'black';
+            const glowColor = isDark ? `rgba(20, 20, 20, ${currentOpacity * 0.55})` : `rgba(255, 107, 53, ${currentOpacity * 0.5})`;
+            const dotColor = isDark ? `rgba(35, 35, 35, ${Math.max(0.18, currentOpacity)})` : `rgba(255, 140, 90, ${currentOpacity})`;
+            const borderColor = isDark ? `rgba(255,255,255,${currentOpacity * 0.05})` : `rgba(255, 140, 90, ${currentOpacity * 0.75})`;
+
             this.ctx.beginPath();
             const gradient = this.ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 4);
-            gradient.addColorStop(0, `rgba(255, 107, 53, ${currentOpacity * 0.5})`);
+            gradient.addColorStop(0, glowColor);
             gradient.addColorStop(1, 'transparent');
             this.ctx.fillStyle = gradient;
             this.ctx.arc(p.x, p.y, p.size * 4, 0, Math.PI * 2);
             this.ctx.fill();
 
             this.ctx.beginPath();
-            this.ctx.fillStyle = `rgba(255, 140, 90, ${currentOpacity})`;
+            this.ctx.fillStyle = dotColor;
             this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
             this.ctx.fill();
+
+            this.ctx.strokeStyle = borderColor;
+            this.ctx.lineWidth = 0.5;
+            this.ctx.stroke();
         });
 
         for (let i = 0; i < this.particles.length; i++) {
@@ -468,6 +699,15 @@ function initNavbar() {
         navLinks.classList.toggle('active');
     });
     
+    // Close button inside mobile menu
+    const navClose = document.getElementById('navClose');
+    if (navClose) {
+        navClose.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    }
+
     // Close on link click
     navLinkItems.forEach(link => {
         link.addEventListener('click', () => {
@@ -624,6 +864,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initProjectFilters();
     initContactLinks();
     initSocialLinks();
+    initLanguageSwitcher();
 
     // Order form
     document.getElementById('orderForm').addEventListener('submit', handleFormSubmit);
