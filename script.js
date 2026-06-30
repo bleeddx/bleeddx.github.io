@@ -745,47 +745,82 @@ document.addEventListener('DOMContentLoaded', () => {
     const bgAudio = document.getElementById('bgAudio');
 
     bgVideo.loop = true;
-    bgVideo.muted = true;
+    bgVideo.muted = false;
     bgVideo.playsInline = true;
     bgVideo.preload = 'auto';
 
     bgAudio.loop = true;
+    bgAudio.autoplay = true;
     bgAudio.preload = 'auto';
     bgAudio.volume = 0.45;
     bgAudio.muted = false;
 
     let audioOn = true;
     audioToggle.classList.add('playing');
-    audioIcon.className = 'fas fa-volume-high';
+    audioIcon.className = 'fas fa-pause';
     audioToggle.setAttribute('aria-pressed', 'true');
 
     const startBackgroundAudio = () => {
+        if (!audioOn || !bgAudio || !bgVideo) return;
+
         bgAudio.play().catch(() => {});
         bgVideo.play().catch(() => {});
     };
 
-    startBackgroundAudio();
+    const syncAudioState = () => {
+        bgAudio.muted = !audioOn;
+        bgVideo.muted = !audioOn;
 
-    document.body.addEventListener('pointerdown', () => {
         if (audioOn) {
-            startBackgroundAudio();
-        }
-    }, { once: true });
-
-    audioToggle.addEventListener('click', () => {
-        audioOn = !audioOn;
-        if (audioOn) {
-            bgAudio.muted = false;
-            audioIcon.className = 'fas fa-volume-high';
+            audioIcon.className = 'fas fa-pause';
             audioToggle.classList.add('playing');
             audioToggle.setAttribute('aria-pressed', 'true');
             startBackgroundAudio();
         } else {
-            bgAudio.muted = true;
-            audioIcon.className = 'fas fa-volume-xmark';
+            audioIcon.className = 'fas fa-play';
             audioToggle.classList.remove('playing');
             audioToggle.setAttribute('aria-pressed', 'false');
+            bgAudio.pause();
+            bgVideo.pause();
         }
+    };
+
+    bgAudio.addEventListener('ended', () => {
+        if (audioOn) {
+            bgAudio.currentTime = 0;
+            bgAudio.play().catch(() => {});
+        }
+    });
+
+    requestAnimationFrame(() => startBackgroundAudio());
+    window.addEventListener('load', startBackgroundAudio, { once: true });
+    startBackgroundAudio();
+
+    const resumeAudioOnInteraction = () => {
+        if (audioOn) {
+            startBackgroundAudio();
+        }
+    };
+
+    document.addEventListener('pointerdown', resumeAudioOnInteraction, { once: true, passive: true });
+    document.addEventListener('touchstart', resumeAudioOnInteraction, { once: true, passive: true });
+    document.addEventListener('keydown', resumeAudioOnInteraction, { once: true, passive: true });
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible' && audioOn) {
+            startBackgroundAudio();
+        }
+    });
+
+    window.addEventListener('pageshow', () => {
+        if (audioOn) {
+            startBackgroundAudio();
+        }
+    });
+
+    audioToggle.addEventListener('click', () => {
+        audioOn = !audioOn;
+        syncAudioState();
     });
 
     // View counter animation

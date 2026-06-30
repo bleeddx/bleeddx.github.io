@@ -19,10 +19,10 @@
 
     <!-- Video Background -->
     <div class="video-bg">
-        <video autoplay muted loop playsinline preload="auto" id="bgVideo">
+        <video autoplay loop playsinline preload="auto" id="bgVideo">
             <source src="fondo.mp4" type="video/mp4">
         </video>
-        <audio id="bgAudio" autoplay loop preload="auto" hidden>
+        <audio id="bgAudio" loop preload="auto" hidden>
             <source src="fondo.mp4" type="audio/mp4">
         </audio>
         <div class="video-overlay"></div>
@@ -33,7 +33,7 @@
     <canvas id="particles"></canvas>
 
     <!-- Audio Toggle -->
-    <button class="audio-toggle playing" id="audioToggle" aria-label="Toggle audio" aria-pressed="true">
+    <button type="button" class="audio-toggle playing" id="audioToggle" aria-label="Toggle audio" aria-pressed="true">
         <i class="fas fa-volume-high" id="audioIcon"></i>
     </button>
 
@@ -281,7 +281,7 @@
             </div>
         </section>
 
-        
+
         <!-- ============ PROJECTS SECTION ============ -->
         <section class="section" id="projects">
             <div class="section-content">
