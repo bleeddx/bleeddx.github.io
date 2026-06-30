@@ -498,29 +498,54 @@ document.addEventListener('DOMContentLoaded', () => {
         cursorGlow.classList.remove('active');
     });
 
-    // Audio toggle using the video audio track
+    // Audio toggle using a hidden audio track from the same fondo.mp4 file
     const audioToggle = document.getElementById('audioToggle');
     const audioIcon = document.getElementById('audioIcon');
     const bgVideo = document.getElementById('bgVideo');
-    bgVideo.loop = true;
-    bgVideo.addEventListener('ended', () => {
-        bgVideo.currentTime = 0;
-        bgVideo.play().catch(() => {});
-    });
+    const bgAudio = document.getElementById('bgAudio');
 
-    let videoAudioOn = false;
+    bgVideo.loop = true;
+    bgVideo.muted = true;
+    bgVideo.playsInline = true;
+    bgVideo.preload = 'auto';
+
+    bgAudio.loop = true;
+    bgAudio.preload = 'auto';
+    bgAudio.volume = 0.45;
+    bgAudio.muted = false;
+
+    let audioOn = true;
+    audioToggle.classList.add('playing');
+    audioIcon.className = 'fas fa-volume-high';
+    audioToggle.setAttribute('aria-pressed', 'true');
+
+    const startBackgroundAudio = () => {
+        bgAudio.play().catch(() => {});
+        bgVideo.play().catch(() => {});
+    };
+
+    startBackgroundAudio();
+
+    document.body.addEventListener('pointerdown', () => {
+        if (audioOn) {
+            startBackgroundAudio();
+        }
+    }, { once: true });
+
     audioToggle.addEventListener('click', () => {
-        if (videoAudioOn) {
-            bgVideo.muted = true;
-            audioIcon.className = 'fas fa-volume-xmark';
-            audioToggle.classList.remove('playing');
-        } else {
-            bgVideo.muted = false;
+        audioOn = !audioOn;
+        if (audioOn) {
+            bgAudio.muted = false;
             audioIcon.className = 'fas fa-volume-high';
             audioToggle.classList.add('playing');
-            bgVideo.play().catch(() => {});
+            audioToggle.setAttribute('aria-pressed', 'true');
+            startBackgroundAudio();
+        } else {
+            bgAudio.muted = true;
+            audioIcon.className = 'fas fa-volume-xmark';
+            audioToggle.classList.remove('playing');
+            audioToggle.setAttribute('aria-pressed', 'false');
         }
-        videoAudioOn = !videoAudioOn;
     });
 
     // View counter animation
